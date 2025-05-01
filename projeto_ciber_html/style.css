@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+  }
+  header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 9%;
+    background: transparent
+  }
+  .logo {
+    font-size: 25px;
+    font-weight: 500;
+    color: #0a0a0a;
+  }
+  .navlist{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  .indrodução-img, .assuntos-img, .noticias-img, .cuidados-img{
+    height: auto; /* Ajusta automaticamente à altura do conteúdo */
+    width: 100%; /* Usa toda a largura disponível */
+    display: flex; /* Usa flexbox para alinhar os itens */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    margin: 20px 0; /* Adiciona espaçamento entre as seções */
+}
+
+.indrodução-img, .assuntos-img, .noticias-img, .cuidados-img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Adiciona bordas arredondadas (opcional) */
+}
