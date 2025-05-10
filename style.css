@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #0d0d0d;
+  color: #fff;
+}
+
+/* Header */
+header {
+  background-color: #4c4c4c;
+  border: 2px solid #0080ff;
+  padding: 10px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.logo img {
+  max-height: 50px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Main content row */
+.content-row {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.main-image {
+  width: 300px;
+  background-color: #ccc;
+}
+
+.text-paragraph {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Highlight row */
+.highlight-row {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  margin: 1rem auto 3rem;
+  padding: 0 1rem;
+  gap: 1rem;
+}
+
+.small-image-container {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.small-image-container img {
+  width: 100px;
+  height: auto;
+}
+
+.highlight-text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Título das seções */
+.section-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+}
+
+/* Linha de cards circulares */
+.circle-row {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.circle-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.circle-card {
+  text-align: center;
+  max-width: 150px;
+}
+
+.circle-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 auto 0.5rem;
+}
+
+/* Imagem com colunas de texto */
+.image-with-columns {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.image-columns-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.large-img {
+  width: 300px;
+  background-color: #ccc;
+  border-radius: 0.5rem;
+}
+
+.columns-text {
+  display: flex;
+  gap: 2rem;
+}
+
+.column p {
+  margin-bottom: 0.5rem;
+}
+
+.main-footer {
+  background-color: #575756; /* mesma cor do header */
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
