@@ -18,9 +18,10 @@ body {
 
 /* Header */
 header {
-  background-color: #2c2c2c;
-  border: 0.125rem solid #1f1f1f;
-  padding: 0.625rem 0;
+  background-color: #0f0f0f;
+  border-bottom: 0.3125rem solid red;
+  border-width: 0.250cap;
+  padding: 0.540rem 0;
 }
 
 .header-container {
@@ -61,6 +62,10 @@ header {
   flex-wrap: wrap;
   max-width: 62.5rem;
   margin: 2rem auto;
+  border: 0.3125rem outset red;
+  border-radius: 0.9375rem;
+  border-width: 0.200cap;
+  border-style:outset;
   padding: 0 1rem;
   gap: 2rem;
 }
@@ -97,6 +102,7 @@ header {
   margin-bottom: 6.25rem;
   border: 0.3125rem solid red;
   border-radius: 0.9375rem;
+  border-style: outset;
   padding: 1em;
   gap: 1.25rem;
 }
@@ -199,10 +205,13 @@ header {
 }
 
 .main-footer {
-  background-color: #2c2c2c;
+  background-color: #0f0f0f;
+  border-top: 0.3125rem solid red;
+  border-width: 0.250cap;
   color: #fff;
-  text-align: center;
-  padding: 1.5rem 0;
+  text-align: right 10px;
+  text-indent: 1159px;
+  padding: 1rem 0;
   font-weight: bold;
   font-size: 1rem;
 }
