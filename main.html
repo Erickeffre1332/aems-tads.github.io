@@ -4,131 +4,372 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AEMS Layout</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>AEMS - Alerta </title>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const heroPopup = document.getElementById('hero-popup');
+      const mainContent = document.getElementById('main-content');
+      const closeHero = document.getElementById('close-hero');
+
+      closeHero.addEventListener('click', () => {
+        heroPopup.style.display = 'none';
+        mainContent.classList.remove('hidden');
+      });
+    });
+  </script>
 </head>
 
 <body>
-  <header>
-    <div class="header-container">
+
+      <div id="hero-popup" class="hero-popup">
+      <div class="hero-popup-content">
+        <img src="images/warning.png" alt="Alerta" class="hero-popup-image" />
+        <h1 class="hero-popup-text">SOFREU UM CYBERATAQUE? EVITE PREJUÍZOS, ATUE RAPIDAMENTE.</h1>
+        <button id="close-hero" class="cta-button">ENTRAR NO SITE</button>
+      </div>
+    </div>
+  <div class="glass">
+  <header class="header">
+    <div class="container header-container">
       <div class="logo">
-        <img src="images/aemsLogo.png" alt="AEMS logo" />
+        <img src="images/aemsLogo.png" alt="Logo AEMS" />
       </div>
       <nav>
         <ul class="nav-links">
-          <li><a href="#">Notícias</a></li>
-          <li><a href="#">Prevenções</a></li>
-          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+          <li><a href="#prevencao">Prevenções</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="content-row">
-      <img class="main-image" src="images/warning.png" alt="Imagem principal" />
-      <p class="text-paragraph">
-        DADOS VAZADOS? EVITE PREJUÍZOS, ATUE RAPIDAMENTE.
-      </p>
-    </section>
-
-    <h2 class="news-title">NOTICIAS</h2>
-
-    <section class="highlight-row">
-      <div class="highlight-item">
-        <div class="small-image-container">
-          <img src="images/gta-6.png" alt="Imagem pequena" />
-        </div>
-        <p class="highlight-text">
-          Lapsus$: Hacker do GTA 6 recebe ordem de ficar internado por tempo indeterminado
-          <br>
-          <br>
-          <br>
-          Fonte: 
-          <a href="https://www.bbc.com/news/technology-67663128">BBC</a>
-        </p>
-      </div>
-
-      <div class="highlight-item">
-        <div class="small-image-container">
-          <img src="images/teclado.png" alt="Imagem pequena" />
-        </div>
-        <p class="highlight-text">
-          BC comunica vazamento de dados de 25,34 mil chaves PIX de pessoas com conta na QI Sociedade de Crédito.
-          <br>
-          <br>
-          <br>
-          Fonte: 
-          <a href="https://g1.globo.com/economia/noticia/2025/03/17/bc-comunica-vazamento-de-dados-de-2534-mil-pessoas-com-conta-na-qi-sociedade-de-credito.ghtml">G1 Globo</a>
-        </p>
-      </div>
-
-      <div class="highlight-item">
-        <div class="small-image-container">
-          <img src="images/pf.png" alt="Imagem pequena" />
-        </div>
-        <p class="highlight-text">
-          Aluno utiliza dados pessoais de professor em sites de apostas.
-          <br>
-          <br>
-          <br>
-          Fonte: 
-          <a href="https://www.cnnbrasil.com.br/nacional/sul/pr/aluno-utiliza-dados-pessoais-de-professor-em-sites-de-apostas-no-pr/">CNN Brasil</a>
-        </p>
-      </div>
-    </section>
-
-    <section class="circle-row">
-      <h2 class="section-title" style="font-size: 3rem">Soube de vazamento de dados que pode afeta-lo?</h2>
-      <h2 class="section-title" style="text-decoration: underline;">O que fazer?</h2>
-      <div class="circle-cards">
-        <div class="circle-card">
-          <img class="circle-img" src="images/1.png" alt=""/>
-          <p>Troque imediatamente senhas expostas.</p>
-        </div>
-        <div class="circle-card">
-          <img class="circle-img" src="images/2.png" alt=""/>
-          <p>Proteja o dispositivo com anti-vírus e autenticação de dois fatores (2FA).</p>
-        </div>
-        <div class="circle-card">
-          <img class="circle-img" src="images/3.png" alt=""/>
-          <p>Fique alerta contra golpes (E-mails, SMS, Telefonemas).</p>
-        </div>
-        <div class="circle-card">
-          <img class="circle-img" src="images/4.png" alt=""/>
-          <p>Monitore sua identidade e sua vida financeira.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="image-with-columns">
-      <h2 class="section-title">Cuidado com os golpistas da internet...</h2>
-      <div class="image-columns-container">
-        <img src="" alt="Imagem" class="large-img" />
-        <div class="columns-text">
-          <div class="column">
-            <p>@Lorem ipsum</p>
-            <p>@Lorem ipsum</p>
-            <p>@Lorem ipsum</p>
-            <p>@Lorem ipsum</p>
-            <p>@Lorem ipsum</p>
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-content">
+          <div class="intro-text">
+            <h1 class="section-title">A Sociedade e a Vulnerabilidade aos Ataques Virtuais</h1>
+            <p>
+              Em tempos cada vez mais conectados, a segurança digital se tornou uma necessidade básica. Em 2024, o
+              Brasil
+              registrou mais de <strong>1,2 milhão</strong> de golpes virtuais, afetando diretamente pessoas físicas e
+              jurídicas.
+            </p>
+            <p>
+              Os vazamentos de dados comprometem não apenas contas bancárias, mas também reputações, identidades e até a
+              segurança de famílias inteiras. Hackers e grupos criminosos utilizam desde engenharia social até
+              ferramentas
+              sofisticadas para invadir sistemas e manipular vítimas.
+            </p>
+            <p>
+              Nós do <strong>Curso de TADS</strong> temos o papel é oferecer informações atualizadas, orientações
+              práticas e apoio à prevenção desses crimes. Quanto mais conhecemos os riscos, mais preparados estamos para
+              agir.
+            </p>
           </div>
-          <div class="column">
-            <p>@Lorem ipsum</p>
-            <p>@Lorem ipsum</p>
-            <p>@Lorem ipsum</p>
-            <p>@Lorem ipsum</p>
-            <p>@Lorem ipsum</p>
+          <div class="intro-image">
+            <img src="images/security-image.gif" alt="Segurança Digital" />
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="main-footer">
-      <p2>v 1.0</p2>
-    </footer>
+    <section id="noticias" class="news-section">
+      <div class="container">
+        <h2 class="section-title">Casos Reais</h2>
+        <div class="news-grid">
+          <article class="news-card">
+            <img src="images/gta-6.png" alt="Notícia GTA 6" />
+            <p>Lapsus$: Hacker do GTA 6 recebe ordem de ficar internado por tempo indeterminado.</p>
+            <a href="https://www.bbc.com/news/technology-67663128" target="_blank">Fonte: BBC</a>
+          </article>
+
+          <article class="news-card">
+            <img src="images/teclado.png" alt="Notícia PIX" />
+            <p>BC comunica vazamento de dados de 25,34 mil chaves PIX de pessoas com conta na QI Sociedade de Crédito.
+            </p>
+            <a href="https://g1.globo.com/economia/noticia/2025/03/17/bc-comunica-vazamento-de-dados-de-2534-mil-pessoas-com-conta-na-qi-sociedade-de-credito.ghtml"
+              target="_blank">Fonte: G1</a>
+          </article>
+
+          <article class="news-card">
+            <img src="images/pf.png" alt="Notícia Aluno e Professor" />
+            <p>Aluno utiliza dados pessoais de professor em sites de apostas.</p>
+            <a href="https://www.cnnbrasil.com.br/nacional/sul/pr/aluno-utiliza-dados-pessoais-de-professor-em-sites-de-apostas-no-pr/"
+              target="_blank">Fonte: CNN</a>
+          </article>
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <section id="prevencao" class="tips-section">
+      <div class="container">
+        <h2 class="section-title">Tipos de Golpes na Internet</h2>
+        <div class="tips-grid">
+
+          <div class="tip">
+            <img src="images/1.png" alt="Phishing" />
+            <div class="tip-texto">
+              <h3>Phishing</h3>
+              <p>Golpistas se passam por instituições confiáveis (como bancos ou empresas conhecidas) e enviam e-mails
+                ou mensagens com links falsos. Ao clicar, a vítima é redirecionada para páginas falsas onde fornece
+                senhas, CPF ou dados bancários sem perceber.</p>
+            </div>
+          </div>
+
+          <div class="tip">
+            <img src="images/2.png" alt="Malware" />
+            <div class="tip-texto">
+              <h3>Malware</h3>
+              <p>São programas espiões escondidos em arquivos, apps ou sites maliciosos. Os hackers usam malware para
+                monitorar suas atividades, roubar senhas, instalar vírus ou sequestrar dados (ransomware), exigindo
+                pagamento para devolvê-los.</p>
+            </div>
+          </div>
+
+          <div class="tip">
+            <img src="images/3.png" alt="WhatsApp Clonado" />
+            <div class="tip-texto">
+              <h3>WhatsApp Clonado</h3>
+              <p>Os criminosos conseguem o número da vítima e fingem ser ela, geralmente entrando em contato com amigos
+                ou familiares pedindo dinheiro via PIX. O golpe começa com mensagens de verificação falsas ou engenharia
+                social via ligação.</p>
+            </div>
+          </div>
+
+          <div class="tip">
+            <img src="images/4.png" alt="Ligações Maliciosas" />
+            <div class="tip-texto">
+              <h3>Ligações Maliciosas</h3>
+              <p>Os golpistas se passam por atendentes de bancos ou suporte técnico, alegam suspeita de fraude ou
+                prêmios falsos, e convencem a vítima a fornecer dados confidenciais, senhas ou a instalar aplicativos
+                espiões.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="dicas-prevencao">
+      <div class="container">
+        <h2 class="section-title">Dicas de Prevenção</h2>
+        <div class="dicas-grid">
+
+          <div class="dica">
+            <img src="images/lock.png" alt="Senha Segura" />
+            <p><strong>Não compartilhe suas senhas</strong><br />Nem com amigos ou familiares. Cada senha é pessoal.</p>
+          </div>
+
+          <div class="dica">
+            <img src="images/2fa.png" alt="Autenticação de Dois Fatores" />
+            <p><strong>Use autenticação de dois fatores</strong><br />Adicione uma camada extra de segurança às suas
+              contas.</p>
+          </div>
+
+          <div class="dica">
+            <img src="images/email-alert.png" alt="E-mail Malicioso" />
+            <p><strong>Não abra e-mails suspeitos</strong><br />Links falsos podem roubar suas informações.</p>
+          </div>
+
+          <div class="dica">
+            <img src="images/update.png" alt="Atualização de sistema" />
+            <p><strong>Mantenha seus dispositivos atualizados</strong><br />Atualizações corrigem falhas de segurança
+              que podem ser exploradas por hackers.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="sobre" class="cta-section">
+      <div class="container">
+        <h2 class="section-title">Como Denunciar um Golpe no Brasil</h2>
+        <p>Siga o passo a passo abaixo para denunciar um golpe ou vazamento de dados:</p>
+
+        <div class="denuncia-passos">
+          <div class="passo">
+            <img src="images/step1.png" alt="Passo 1" class="passo-img" />
+            <div class="passo-texto">
+              <strong>Reúna as informações:</strong>
+              <p>prints, e-mails, mensagens, etc.</p>
+            </div>
+          </div>
+
+          <div class="passo">
+            <img src="images/step2.png" alt="Passo 2" class="passo-img" />
+            <div class="passo-texto">
+              <strong>Registre um boletim de ocorrência:</strong>
+              <p>Você pode fazer isso presencialmente ou online via <a href="https://delegaciavirtual.sinesp.gov.br/"
+                  target="_blank">Delegacia Virtual</a>.</p>
+            </div>
+          </div>
+
+          <div class="passo">
+            <img src="images/step3.png" alt="Passo 3" class="passo-img" />
+            <div class="passo-texto">
+              <strong>Comunique bancos e empresas envolvidas:</strong>
+              <p>Informe sobre o vazamento para que possam bloquear transações e evitar prejuízos.</p>
+            </div>
+          </div>
+
+          <div class="passo">
+            <img src="images/step4.png" alt="Passo 4" class="passo-img" />
+            <div class="passo-texto">
+              <strong>Denuncie em órgãos como o <a href="https://www.consumidor.gov.br/"
+                  target="_blank">Consumidor.gov.br</a> ou <a href="https://www.procon.sp.gov.br/"
+                  target="_blank">Procon</a>:</strong>
+              <p>Esses órgãos ajudam na mediação e orientação de consumidores lesados.</p>
+            </div>
+          </div>
+
+          <div class="passo">
+            <img src="images/step5.png" alt="Passo 5" class="passo-img" />
+            <div class="passo-texto">
+              <strong>Alerta outras pessoas:</strong>
+              <p>Compartilhe o ocorrido com amigos e familiares para que eles fiquem alertas.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="emergencia">Em caso de emergência, procure a Polícia Civil ou Federal.</p>
+      </div>
+    </section>
+
+
+    <section class="sobre-nos">
+      <div class="container warning-container">
+        <h2 class="section-title">TADS AEMS</h2>
+        <div class="membros">
+
+          <div class="membro">
+            <a href="https://github.com/usuario1" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 1" />
+            </a>
+            <p>Usuário 1</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario2" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 2" />
+            </a>
+            <p>Usuário 2</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario3" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 3" />
+            </a>
+            <p>Usuário 3</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario4" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 4" />
+            </a>
+            <p>Usuário 4</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario5" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 5" />
+            </a>
+            <p>Usuário 5</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario6" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 6" />
+            </a>
+            <p>Usuário 6</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario7" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 7" />
+            </a>
+            <p>Usuário 7</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario8" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 8" />
+            </a>
+            <p>Usuário 8</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario9" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 9" />
+            </a>
+            <p>Usuário 9</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario10" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 10" />
+            </a>
+            <p>Usuário 10</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario11" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 11" />
+            </a>
+            <p>Usuário 11</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario12" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 12" />
+            </a>
+            <p>Usuário 12</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario13" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 13" />
+            </a>
+            <p>Usuário 13</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario14" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 14" />
+            </a>
+            <p>Usuário 14</p>
+          </div>
+
+          <div class="membro">
+            <a href="https://github.com/usuario15" target="_blank">
+              <img src="images/github-icon.png" alt="Usuário 15" />
+            </a>
+            <p>Usuário 15</p>
+          </div>
+
+        </div>
+        <p class="observacao">Clique nos ícones para acessar os perfis GitHub da equipe.</p>
+      </div>
+    </section>
+    
 
   </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container">
+      <p>AEMS © 2025 - v1.0</p>
+    </div>
+  </footer>
+  </div>
 </body>
 
 </html>
