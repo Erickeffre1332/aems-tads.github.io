@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 
 :root {
   --primary-color: red;
   --bg-color: #000;
   --text-color: #fff;
-  --font-family: 'Pixelify Sans', sans-serif;
+  --font-family: 'Jersey 15', sans-serif;
 }
 
 * {
@@ -67,6 +67,7 @@ img {
 /* Títulos */
 .section-title {
   font-size: 2.5rem;
+  font-weight: normal;
   margin-bottom: 2rem;
 }
 
@@ -156,7 +157,7 @@ img {
   color: var(--primary-color);
   font-weight: bold;
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 /* Dicas */
@@ -189,6 +190,7 @@ img {
   padding: 1rem;
   gap: 1.5rem;
   text-align: left;
+  background: #1a1a1a;
   transition: background 0.3s ease;
 }
 
@@ -535,7 +537,7 @@ html, body {
 }
 
 .intro-section strong {
-  color: #ffd166;
+  color: #ff0000;
   font-weight: bold;
 }
 
