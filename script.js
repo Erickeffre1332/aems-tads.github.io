@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const heroText = document.querySelector('.hero-popup-text');
   const closeHero = document.getElementById('close-hero');
 
-  document.body.classList.add('no-scroll');
-
   function typeWriter(text, element, speed, callback) {
     let i = 0;
     element.textContent = '';
@@ -25,12 +23,27 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   closeHero.addEventListener('click', function () {
-    heroPopup.classList.add('fade-out');
+    heroPopup.style.display = 'none';
+    const colors = ['#ff0000', '#ff6600', '#ffcc00', '#ffffff'];
 
-    setTimeout(() => {
-      heroPopup.style.display = 'none';
-      document.body.classList.remove('no-scroll');
-    }, 500);
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.top = '-10px';
+
+      const animation = confetti.animate([
+        { top: '-10px', opacity: 1 },
+        { top: '100vh', opacity: 0 }
+      ], {
+        duration: 1000 + Math.random() * 2000,
+        easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
+      });
+
+      document.body.appendChild(confetti);
+      animation.onfinish = () => confetti.remove();
+    }
   });
 
   function setupCardTilt() {
