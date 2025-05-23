@@ -93,12 +93,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /*Envio avaliação p/ formulario*/
   const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfI2NzkjYZ4WHdTw7-qTw-lERDfXlVpr7m7hIO1ChrxGneKMw/formResponse"; /*Link Form*/
-  const entryID = "entry.971847553"; /*Código da pergunta*/
+
+  const entryIDRating = "entry.971847553";  // ID da nota (estrelas)
+  const entryIDFeedback = "entry.246850461"; // ID da sugestão (feedback)
 
   const submitButton = document.getElementById("submitRating");
 
   submitButton.addEventListener("click", () => {
     const selected = document.querySelector('input[name="rate"]:checked');
+    const feedback = document.getElementById("feedback").value.trim();
 
     if (!selected) {
       alert("Por favor, selecione uma avaliação antes de enviar.");
@@ -106,7 +109,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const formData = new FormData();
-    formData.append(entryID, selected.value);
+    formData.append(entryIDRating, selected.value);
+
+    if (feedback) {
+      formData.append(entryIDFeedback, feedback);
+    }
 
     fetch(formURL, {
       method: "POST",
@@ -115,7 +122,9 @@ document.addEventListener('DOMContentLoaded', function () {
     })
       .then(() => {
         alert("✅ Avaliação enviada com sucesso!");
-        document.getElementById("stars").classList.remove("open"); /*Fecha o pop-up*/
+        stars.classList.remove("open");
+
+        document.getElementById("feedback").value = "";
       })
       .catch(() => {
         alert("❌ Erro ao enviar a avaliação.");
