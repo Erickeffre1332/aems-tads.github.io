@@ -91,6 +91,70 @@ document.addEventListener('DOMContentLoaded', function () {
     stars.classList.remove("open");
   });
 
+  /*Equipe*/
+
+  const membros = [
+    { nome: "Arthur Freitas", github: "", img: "" },
+    { nome: "Brenno Santiago", github: "brennosantiago", img: "images/brenno.png" },
+    { nome: "Cristian Filho", github: "CrisHz96", img: "" },
+    { nome: "Eduardo Junior", github: "", img: "" },
+    { nome: "Erick Souza", github: "Erickeffre1332", img: "" },
+    { nome: "Fabio Sousa", github: "fabiomassucatto", img: "images/fabio.jpg" },
+    { nome: "Felipe Shinkae", github: "fshinkae", img: "images/shinkae.jpg" },
+    { nome: "Gabriel Shinkae", github: "", img: "" },
+    { nome: "Heitor Cortes", github: "heitorpcrl", img: "" },
+    { nome: "João Leme", github: "djaozin", img: "images/joao.jpg" },
+    { nome: "José Martins", github: "BanguelaDev", img: "images/bangueladev.jpg" },
+    { nome: "João Pereira", github: "", img: "" },
+    { nome: "Marco Souza", github: "", img: "" },
+    { nome: "Mateus Koike", github: "landmarkjan182", img: "images/koike.JPG" },
+    { nome: "Matheus Silva", github: "MatheusSilvaNB", img: "" },
+    { nome: "Paulo Martins", github: "PauloKT", img: "images/paulokt.jpg" },
+  ];
+
+  const container = document.getElementById("membrosContainer");
+
+  membros.forEach(m => {
+    const div = document.createElement("div");
+    div.className = "membro";
+
+    const a = document.createElement("a");
+    a.href = m.github ? `https://github.com/${m.github}` : "#";
+    a.target = "_blank";
+
+    const img = document.createElement("img");
+    img.alt = m.nome;
+
+    if (m.img) {
+      img.src = m.img;
+    } else if (m.github) {
+      img.setAttribute("data-github", m.github);
+      img.onerror = function () {
+        this.onerror = null; // evita loop
+        this.src = `https://github.com/${this.getAttribute("data-github")}.png`;
+      };
+      img.src = "https://github.com/undefined-avatar.png";
+    } else {
+      img.src = "images/github-icon.png";
+    }
+
+    a.appendChild(img);
+    div.appendChild(a);
+
+    const p = document.createElement("p");
+    p.textContent = m.nome;
+    div.appendChild(p);
+
+    container.appendChild(div);
+  });
+
+  function loadGithubAvatar(imgElement) {
+    const username = imgElement.getAttribute("data-github");
+    if (username) {
+      imgElement.src = `https://github.com/${username}.png`;
+    }
+  }
+
   /*Envio avaliação p/ formulario*/
   const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfI2NzkjYZ4WHdTw7-qTw-lERDfXlVpr7m7hIO1ChrxGneKMw/formResponse"; /*Link Form*/
 
