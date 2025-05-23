@@ -518,7 +518,7 @@ body.no-scroll {
 
 .emergencia {
   font-size: 1.1rem;
-  color: #f4a261;
+  color: #ff0000;
   margin-top: 2rem;
 }
 
@@ -780,7 +780,7 @@ html, body {
 .stars-inner .rating input:checked ~ label::before,
 .stars-inner .rating label:hover::before,
 .stars-inner .rating label:hover ~ label::before {
-  color: #ffd700;
+  color: #ff0000;
 }
 
 .stars-inner .rating label:hover,
