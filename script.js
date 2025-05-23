@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { nome: "Erick Souza", github: "Erickeffre1332", img: "" },
     { nome: "Fabio Sousa", github: "fabiomassucatto", img: "images/fabio.jpg" },
     { nome: "Felipe Shinkae", github: "fshinkae", img: "images/shinkae.jpg" },
-    { nome: "Gabriel Shinkae", github: "", img: "" },
+    { nome: "Gabriel Shinkae", github: "gabrieleiji", img: "images/gabriel.jpg" },
     { nome: "Heitor Cortes", github: "heitorpcrl", img: "images/heitor.jpg" },
     { nome: "João Leme", github: "djaozin", img: "images/joao.jpg" },
     { nome: "José Martins", github: "BanguelaDev", img: "images/bangueladev.jpg" },
