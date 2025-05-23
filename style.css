@@ -290,12 +290,15 @@ body.no-scroll {
 
 /* Notícias */
 .news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
 }
 
 .news-card {
+  max-width: 370px;
+  text-align: center;
   background: #1a1a1a;
   padding: 1rem;
   border: 2px solid var(--primary-color);
@@ -304,6 +307,7 @@ body.no-scroll {
   transform-style: preserve-3d;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .news-card::before {
