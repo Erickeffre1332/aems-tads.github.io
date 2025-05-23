@@ -96,13 +96,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const membros = [
     { nome: "Arthur Freitas", github: "", img: "" },
     { nome: "Brenno Santiago", github: "brennosantiago", img: "images/brenno.png" },
-    { nome: "Cristian Filho", github: "CrisHz96", img: "" },
+    { nome: "Cristian Filho", github: "LotusHZ", img: "images/cris.jpg" },
     { nome: "Eduardo Junior", github: "", img: "" },
     { nome: "Erick Souza", github: "Erickeffre1332", img: "" },
     { nome: "Fabio Sousa", github: "fabiomassucatto", img: "images/fabio.jpg" },
     { nome: "Felipe Shinkae", github: "fshinkae", img: "images/shinkae.jpg" },
     { nome: "Gabriel Shinkae", github: "", img: "" },
-    { nome: "Heitor Cortes", github: "heitorpcrl", img: "" },
+    { nome: "Heitor Cortes", github: "heitorpcrl", img: "images/heitor.jpg" },
     { nome: "João Leme", github: "djaozin", img: "images/joao.jpg" },
     { nome: "José Martins", github: "BanguelaDev", img: "images/bangueladev.jpg" },
     { nome: "João Pereira", github: "", img: "" },
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
       };
       img.src = "https://github.com/undefined-avatar.png";
     } else {
-      img.src = "images/github-icon.png";
+      img.src = "images/default.jpg";
     }
 
     a.appendChild(img);
