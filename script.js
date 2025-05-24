@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /*Equipe*/
 
   const membros = [
-    { nome: "Arthur Freitas", github: "", img: "" },
+    { nome: "Arthur Freitas", github: "stayxit", img: "images/Arthur.jpg" },
     { nome: "Brenno Santiago", github: "brennosantiago", img: "images/brenno.png" },
     { nome: "Cristian Filho", github: "LotusHZ", img: "images/cris.jpg" },
     { nome: "Eduardo Junior", github: "", img: "" },
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { nome: "João Leme", github: "djaozin", img: "images/joao.jpg" },
     { nome: "José Martins", github: "BanguelaDev", img: "images/bangueladev.jpg" },
     { nome: "João Pereira", github: "", img: "" },
-    { nome: "Marco Souza", github: "", img: "" },
+    { nome: "Marco Souza", github: "Ghxxt1", img: "images/Marco.jpg" },
     { nome: "Mateus Koike", github: "landmarkjan182", img: "images/koike.JPG" },
     { nome: "Matheus Silva", github: "MatheusSilvaNB", img: "" },
     { nome: "Paulo Martins", github: "PauloKT", img: "images/paulokt.jpg" },
