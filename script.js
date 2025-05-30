@@ -97,18 +97,18 @@ document.addEventListener('DOMContentLoaded', function () {
     { nome: "Arthur Freitas", github: "stayxit", img: "images/Arthur.jpg" },
     { nome: "Brenno Santiago", github: "brennosantiago", img: "images/brenno.png" },
     { nome: "Cristian Filho", github: "LotusHZ", img: "images/cris.jpg" },
-    { nome: "Eduardo Junior", github: "", img: "" },
-    { nome: "Erick Souza", github: "Erickeffre1332", img: "" },
+    { nome: "Eduardo Junior", github: "", img: "images/eduardo.jpg" },
+    { nome: "Erick Souza", github: "Erickeffre1332", img: "images/erick.jpg" },
     { nome: "Fabio Sousa", github: "fabiomassucatto", img: "images/fabio.jpg" },
-    { nome: "Felipe Shinkae", github: "fshinkae", img: "images/shinkae.jpg" },
+    { nome: "Felipe Shinkae", github: "fshinkae", img: "images/shinkae2.jpg" },
     { nome: "Gabriel Shinkae", github: "gabrieleiji", img: "images/gabriel.jpg" },
     { nome: "Heitor Cortes", github: "heitorpcrl", img: "images/heitor.jpg" },
     { nome: "João Leme", github: "djaozin", img: "images/joao.jpg" },
     { nome: "José Martins", github: "BanguelaDev", img: "images/bangueladev.jpg" },
-    { nome: "João Pereira", github: "", img: "" },
+    { nome: "João Brandão", github: "joao95352", img: "images/joaocaruzo.jpg" },
     { nome: "Marco Souza", github: "Ghxxt1", img: "images/Marco.jpg" },
     { nome: "Mateus Koike", github: "landmarkjan182", img: "images/koike.JPG" },
-    { nome: "Matheus Silva", github: "MatheusSilvaNB", img: "" },
+    { nome: "Matheus Silva", github: "MatheusSilvaNB", img: "images/mathaeus.png" },
     { nome: "Paulo Martins", github: "PauloKT", img: "images/paulokt.jpg" },
   ];
 
@@ -147,25 +147,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     container.appendChild(div);
   });
-
-  function loadGithubAvatar(imgElement) {
-    const username = imgElement.getAttribute("data-github");
-    if (username) {
-      imgElement.src = `https://github.com/${username}.png`;
-    }
-  }
-
+  
   /*Envio avaliação p/ formulario*/
   const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfI2NzkjYZ4WHdTw7-qTw-lERDfXlVpr7m7hIO1ChrxGneKMw/formResponse"; /*Link Form*/
 
   const entryIDRating = "entry.971847553";  // ID da nota (estrelas)
-  const entryIDFeedback = "entry.246850461"; // ID da sugestão (feedback)
+  // const entryIDFeedback = "entry.246850461"; // ID da sugestão (feedback)
 
   const submitButton = document.getElementById("submitRating");
 
   submitButton.addEventListener("click", () => {
     const selected = document.querySelector('input[name="rate"]:checked');
-    const feedback = document.getElementById("feedback").value.trim();
+    // const feedback = document.getElementById("feedback").value.trim();
 
     if (!selected) {
       alert("Por favor, selecione uma avaliação antes de enviar.");
@@ -175,9 +168,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const formData = new FormData();
     formData.append(entryIDRating, selected.value);
 
-    if (feedback) {
-      formData.append(entryIDFeedback, feedback);
-    }
+    //  if (feedback) {
+    //   formData.append(entryIDFeedback, feedback);
+    //  }
 
     fetch(formURL, {
       method: "POST",
@@ -188,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
         alert("✅ Avaliação enviada com sucesso!");
         stars.classList.remove("open");
 
-        document.getElementById("feedback").value = "";
+        // document.getElementById("feedback").value = "";
       })
       .catch(() => {
         alert("❌ Erro ao enviar a avaliação.");
