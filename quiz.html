@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AEMS - Alerta</title>
+    <title>AEMS - Alerta Quiz</title>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="script.js"></script>
+    <script src="quiz.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="container header-container">
-        <div class="logo">
-            <a href="http://www.aems.edu.br/" target="_blank"><img src="images/aemsLogo.png" alt="Logo AEMS" /></a>
-        </div>
-    </header>
-
-    <section class="content">
-        <div class="intro-section">
-            <h1 class="section-title">Teste seus conhecimentos</h1>
-                
-            <div class="questions">
-                <div id="question"></div>
-                <div id="options"></div>
-                <div id="btn-question"></div>
+    <div class="glass">
+        <header class="header">
+            <div class="container header-container">
+                <div class="logo">
+                    <a href="http://www.aems.edu.br/" target="_blank"><img src="images/aemsLogo.png" alt="Logo AEMS" /></a>
+                </div>
             </div>
-        </div>
-    </section>
+        </header>
+
+        <main class="container">
+            <section class="intro-section">
+                <h1 class="section-title">Teste seus conhecimentos</h1>
+                <div class="questions">
+                    <div id="question"></div>
+                    <div id="options"></div>
+                    <button id="questionBtn"></button>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
