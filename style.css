@@ -1063,3 +1063,50 @@ body {
   }
 
 }
+
+.quiz{
+  display: flex;
+  justify-content: center;
+}
+
+#quiz {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 20px rgba(255, 75, 43, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* Efeito hover */
+#quiz:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(255, 75, 43, 0.6);
+}
+
+/* Clique */
+#quiz:active {
+  transform: scale(0.96);
+}
+
+.questions{
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ff0000;
+  border-radius: 12px;
+
+  text-align: center;
+  color: white;
+}
