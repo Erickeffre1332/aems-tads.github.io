@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const progressEl = document.getElementById('progress');
 
     let currentStep = 0;
-
     let facts = {
         conhece_phishing: false,
         conhece_ransomware: false,
