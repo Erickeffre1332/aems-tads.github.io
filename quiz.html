@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AEMS - Alerta Quiz</title>
+    <title>AEMS - Sistema Especialista</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="quiz.js"></script>
+    <script src="quiz.js" defer></script>
 </head>
 <body>
     <div class="glass">
         <header class="header">
             <div class="container header-container">
                 <div class="logo">
-                    <a href="http://www.aems.edu.br/" target="_blank"><img src="images/aemsLogo.png" alt="Logo AEMS" /></a>
+                    <a href="http://www.aems.edu.br/" target="_blank">
+                        <img src="images/aemsLogo.png" alt="Logo AEMS" />
+                    </a>
                 </div>
             </div>
         </header>
 
         <main class="container">
             <section class="intro-section">
-                <h1 class="section-title">Teste seus conhecimentos</h1>
+                <h1 class="section-title">Sistema Especialista em Segurança Digital</h1>
+
                 <div class="questions">
+                    <p id="progress" style="text-align:center; margin-bottom:10px;"></p>
                     <div id="question"></div>
                     <div id="options"></div>
-                    <button id="questionBtn"></button>
+                    <button id="questionBtn">Iniciar</button>
+
                 </div>
             </section>
         </main>

@@ -1,132 +1,156 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     const questionContainer = document.getElementById('question');
     const optionsContainer = document.getElementById('options');
     const actionButton = document.getElementById('questionBtn');
 
     let currentStep = 0;
-    let score = 0;
+
+    let facts = {
+        conhece_phishing: false,
+        conhece_ransomware: false,
+        conhece_2fa: false,
+        usa_senha_forte: false,
+        sabe_identificar_email_falso: false,
+        clica_links_desconhecidos: false,
+        reutiliza_senha: false,
+        usa_wifi_publico: false,
+        atualiza_sistema: false,
+        usa_antivirus: false,
+        verifica_urls: false,
+        compartilha_dados: false,
+        faz_backup: false,
+        usa_2fa: false,
+        abre_anexos_desconhecidos: false,
+        confia_em_promocoes: false,
+        usa_senha_padrao: false,
+        ignora_alertas: false,
+        acessa_sites_inseguros: false,
+        baixa_arquivos_desconhecidos: false
+    };
 
     const questions = [
         {
-            question: "Qual é o principal objetivo de um ataque de 'Phishing'?",
-            correct: "Enganar usuários para que revelem informações sensíveis como senhas e dados bancários.",
-            wrongs: [
-                "Criptografar os arquivos do usuário para exigir um resgate em dinheiro.",
-                "Infectar o computador com um vírus que se replica automaticamente pela rede.",
-                "Sobrecarregar um servidor com tráfego falso para torná-lo indisponível."
-            ]
+            question: "Você sabe o que é phishing?",
+            fact: "conhece_phishing"
         },
         {
-            question: "O que caracteriza um ataque de 'Ransomware'?",
-            correct: "O bloqueio de acesso aos arquivos do sistema através de criptografia, seguido de um pedido de resgate.",
-            wrongs: [
-                "A alteração visual da página inicial de um site para exibir mensagens políticas.",
-                "O uso de robôs para adivinhar senhas por meio de tentativas exaustivas.",
-                "A interceptação silenciosa de dados que trafegam em uma rede Wi-Fi pública."
-            ]
+            question: "Você usa a mesma senha em vários serviços?",
+            fact: "reutiliza_senha"
         },
         {
-            question: "O que é a Autenticação de Dois Fatores (2FA)?",
-            correct: "Uma camada extra de segurança que exige algo que você sabe (senha) e algo que você possui (como um código no celular).",
-            wrongs: [
-                "O processo de validar se um e-mail é verdadeiro verificando o nome do remetente duas vezes.",
-                "Um sistema que permite o acesso de dois usuários simultâneos em uma mesma conta.",
-                "A exigência de criar duas senhas diferentes para o mesmo serviço."
-            ]
+            question: "Você utiliza autenticação em dois fatores (2FA)?",
+            fact: "usa_2fa"
         },
         {
-            question: "Qual destas senhas é considerada a mais segura para proteger uma conta?",
-            correct: "G7#p!2mQ9v",
-            wrongs: ["Sua data de nascimento", "123456", "senha123"]
+            question: "Você costuma clicar em links desconhecidos?",
+            fact: "clica_links_desconhecidos"
         },
         {
-            question: "Se você receber um e-mail de um banco pedindo para clicar em um link urgente para 'atualizar seus dados', o que deve fazer?",
-            correct: "Ignorar o e-mail ou entrar em contato com o banco por um canal oficial.",
-            wrongs: [
-                "Encaminhar para todos os seus amigos para avisá-los.",
-                "Clicar imediatamente para não ter a conta bloqueada.",
-                "Responder ao e-mail enviando apenas seu CPF."
-            ]
+            question: "Você usa Wi-Fi público com frequência?",
+            fact: "usa_wifi_publico"
+        },
+        {
+            question: "Você sabe identificar e-mails falsos ou fraudulentos?",
+            fact: "sabe_identificar_email_falso"
+        },
+        {
+            question: "Você mantém seu sistema atualizado?",
+            fact: "atualiza_sistema"
+        },
+        {
+            question: "Você usa antivírus no seu dispositivo?",
+            fact: "usa_antivirus"
+        },
+        {
+            question: "Você faz backup dos seus dados regularmente?",
+            fact: "faz_backup"
+        },
+        {
+            question: "Você usa senhas fortes diferentes para cada serviço?",
+            fact: "usa_senha_forte"
         }
     ];
 
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+
+    let riskScore = 0;
+    let recommendations = [];
+
+    function addRisk(value, rec) {
+        riskScore += value;
+        recommendations.push(rec);
     }
 
-    const shuffledQuestions = shuffle([...questions]);
+    function runInference() {
+
+        if (facts.clica_links_desconhecidos) addRisk(2, "Evite clicar em links desconhecidos");
+        if (facts.reutiliza_senha) addRisk(3, "Não reutilize senhas");
+        if (!facts.conhece_phishing) addRisk(2, "Aprenda sobre phishing");
+        if (!facts.usa_2fa) addRisk(3, "Ative autenticação em dois fatores");
+        if (facts.usa_wifi_publico) addRisk(2, "Evite Wi-Fi público sem proteção");
+        if (facts.reutiliza_senha && !facts.usa_2fa) addRisk(4, "Senha vulnerável + sem 2FA");
+        if (facts.clica_links_desconhecidos && !facts.conhece_phishing) addRisk(4, "Alto risco de golpe");
+        if (!facts.usa_antivirus) addRisk(2, "Use antivírus");
+        if (!facts.atualiza_sistema) addRisk(2, "Atualize seu sistema");
+        if (!facts.faz_backup) addRisk(2, "Faça backups regulares");
+        if (!facts.sabe_identificar_email_falso) addRisk(2, "Aprenda a identificar e-mails fraudulentos");
+        if (!facts.usa_senha_forte) addRisk(2, "Use senhas fortes diferentes para cada serviço");
+    }
+
+    function getRiskLevel() {
+        if (riskScore <= 5) return "BAIXO";
+        if (riskScore <= 12) return "MÉDIO";
+        return "ALTO";
+    }
 
     function loadQuestion() {
-        const q = shuffledQuestions[currentStep];
-        const allOptions = shuffle([q.correct, ...q.wrongs]);
+        const q = questions[currentStep];
 
-        questionContainer.innerHTML = `<h3>${currentStep + 1}. ${q.question}</h3>`;
-        optionsContainer.innerHTML = '';
-        
-        allOptions.forEach((opt, index) => {
-            const letter = String.fromCharCode(97 + index);
-            const label = document.createElement('label');
-            label.innerHTML = `
-                <input type="radio" name="quiz-answer" value="${opt}"> 
-                ${letter.toUpperCase()}) ${opt}
-            `;
-            optionsContainer.appendChild(label);
-        });
+        questionContainer.innerHTML = `<h3>${q.question}</h3>`;
 
-        actionButton.textContent = (currentStep === shuffledQuestions.length - 1) ? "Finalizar" : "Próximo";
+        optionsContainer.innerHTML = `
+            <label><input type="radio" name="answer" value="sim"> Sim</label><br>
+            <label><input type="radio" name="answer" value="nao"> Não</label>
+        `;
+
+        actionButton.textContent = (currentStep === questions.length - 1) ? "Finalizar" : "Próximo";
     }
 
     actionButton.addEventListener('click', function () {
-        const selectedOption = document.querySelector('input[name="quiz-answer"]:checked');
 
-        if (!selectedOption) {
-            alert("Por favor, selecione uma resposta antes de continuar!");
+        const selected = document.querySelector('input[name="answer"]:checked');
+
+        if (!selected) {
+            alert("Selecione uma opção!");
             return;
         }
 
-        if (selectedOption.value === shuffledQuestions[currentStep].correct) {
-            score++;
-        }
+        const factName = questions[currentStep].fact;
+        facts[factName] = selected.value === "sim";
 
-        if (currentStep < shuffledQuestions.length - 1) {
+        if (currentStep < questions.length - 1) {
             currentStep++;
             loadQuestion();
         } else {
-            showFinalResults();
+            showResult();
         }
     });
 
-    function showFinalResults() {
-        let message = "";
-        let color = "";
+    function showResult() {
 
-        if (score === 0) {
-            message = "Alerta crítico! Você está muito vulnerável. Leia nossas dicas de prevenção urgentemente.";
-            color = "#ff4444";
-        } else if (score <= 2) {
-            message = "Cuidado! Seu conhecimento básico precisa de reforço para evitar golpes reais.";
-            color = "#ff8800";
-        } else if (score <= 4) {
-            message = "Bom trabalho! Você conhece bem os riscos, mas ainda pode melhorar sua atenção.";
-            color = "#ffff00";
-        } else {
-            message = "Parabéns, Você é um especialista em cibersegurança e sabe como se proteger.";
-            color = "#00ff88";
-        }
+        runInference();
+        const risk = getRiskLevel();
 
-        questionContainer.innerHTML = "<h2>Teste Concluído!</h2>";
+        questionContainer.innerHTML = `<h2>Risco: ${risk}</h2>`;
+
         optionsContainer.innerHTML = `
-            <div style="text-align: center;">
-                <p style='font-size: 1.8rem; margin-bottom: 10px;'>Você acertou <strong>${score}</strong> de ${shuffledQuestions.length}</p>
-                <p style='font-size: 1.2rem; color: ${color}; font-weight: bold; line-height: 1.4;'>${message}</p>
-                <br>
-                <a href="index.html" style="color: #fff; text-decoration: underline;">Voltar ao início</a>
-            </div>
+            <p>Pontuação: ${riskScore}</p>
+            <h3>Recomendações:</h3>
+            <ul>
+                ${recommendations.map(r => `<li>${r}</li>`).join('')}
+            </ul>
         `;
+
         actionButton.style.display = "none";
     }
 
