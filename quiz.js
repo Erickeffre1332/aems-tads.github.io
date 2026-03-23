@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     const questionContainer = document.getElementById('question');
     const optionsContainer = document.getElementById('options');
     const actionButton = document.getElementById('questionBtn');
@@ -47,6 +48,26 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             question: "Você usa Wi-Fi público com frequência?",
             fact: "usa_wifi_publico"
+        },
+        {
+            question: "Você sabe identificar e-mails falsos ou fraudulentos?",
+            fact: "sabe_identificar_email_falso"
+        },
+        {
+            question: "Você mantém seu sistema atualizado?",
+            fact: "atualiza_sistema"
+        },
+        {
+            question: "Você usa antivírus no seu dispositivo?",
+            fact: "usa_antivirus"
+        },
+        {
+            question: "Você faz backup dos seus dados regularmente?",
+            fact: "faz_backup"
+        },
+        {
+            question: "Você usa senhas fortes diferentes para cada serviço?",
+            fact: "usa_senha_forte"
         }
     ];
 
@@ -71,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!facts.usa_antivirus) addRisk(2, "Use antivírus");
         if (!facts.atualiza_sistema) addRisk(2, "Atualize seu sistema");
         if (!facts.faz_backup) addRisk(2, "Faça backups regulares");
+        if (!facts.sabe_identificar_email_falso) addRisk(2, "Aprenda a identificar e-mails fraudulentos");
+        if (!facts.usa_senha_forte) addRisk(2, "Use senhas fortes diferentes para cada serviço");
     }
 
     function getRiskLevel() {
