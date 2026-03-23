@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     const questionContainer = document.getElementById('question');
     const optionsContainer = document.getElementById('options');
     const actionButton = document.getElementById('questionBtn');
 
     let currentStep = 0;
-
     let facts = {
         conhece_phishing: false,
         conhece_ransomware: false,
